@@ -1,0 +1,15 @@
+<h3>Make changes to <%= @survey.name() %>?</h3>
+
+<form action="/survey_change" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="survey_id" value="<%= @survey.id() %>">
+  <label for="new_name">New name:</label>
+  <input type="text" name="new_name" value="<%= @survey.name() %>">
+  <button type="submit">Rename it!</button>
+</form>
+
+<form action="/survey_delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="id" value="<%= @survey.id() %>">
+  <button name="button">Delete it!</button>
+</form>

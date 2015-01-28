@@ -1,0 +1,13 @@
+<h3>Add a new survey:</h3>
+
+<form class="form-group" action="/add_survey" method="post">
+  <label for="name">Name Your Survey</label>
+  <input type="text" name="name" placeholder="My survey">
+  <button type="submit" class="btn btn-lg btn-primary">Add it!</button>
+</form>
+
+<% @surveys.each() do |survey| %>
+  <ul>
+    <li><a href="/survey/<%= survey.id() %>"><%= survey.name() %></a></li>
+  </ul>
+<% end %>
