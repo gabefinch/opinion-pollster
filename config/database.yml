@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: opinion_pollster_development
+
+test:
+  adapter: postgresql
+  database: opinion_pollster_test
