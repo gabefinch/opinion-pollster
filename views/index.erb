@@ -6,12 +6,14 @@
   <button type="submit" class="btn btn-lg btn-primary">Add it!</button>
 </form>
 
+<h4>Surveys <span class="badge"><%= @surveys.length() %></span></h4>
 <% @surveys.each() do |survey| %>
   <ul>
-    <li><a href="/survey/<%= survey.id() %>"><%= survey.name() %></a></li>
+    <li><a href="/survey/<%= survey.id() %>"><%= survey.name() %>
+      <span class="badge"><%= survey.questions().length() %> questions</span></a></li>
   </ul>
 <% end %>
 
 </br>
 
-<a href="/questions" class="btn btn-lg btn-info">Questions Page</a>
+<a href="/questions" class="btn btn-lg btn-info">Questions <span class="badge"><%= @questions.length() %></span></a>

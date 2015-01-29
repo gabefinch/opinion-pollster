@@ -17,9 +17,11 @@
 <hr>
   <select type="text" name="survey_id">
     <% @surveys.each() do |survey| %>
-    <option value="<%= survey.id() %>"><%= survey.name() %></option>
+    <option value="<%= survey.id() %>">Add to: <%= survey.name() %></option>
     <% end %>
+    <option value="delete">Delete selected question</option>
   </select>
 <hr>
-  <button type="submit" class="btn btn-md btn-success">Add selected questions to survey!</button>
+  <button type="submit" class="btn btn-md btn-success">Do it!</button>
+  <button type="reset" class="btn btn-md btn-danger">Reset</button>
 </form>

@@ -5,6 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
   @surveys = Survey.all()
+  @questions = Question.all()
   erb(:index)
 end
 
@@ -85,10 +86,17 @@ post('/new_question') do
 end
 
 post('/choose_question') do
-  survey_to_modify = Survey.find(params['survey_id'])
-  params['question_ids'].each do |id|
-    ques = Question.find(id.to_i())
-    survey_to_modify.questions.push(ques)
+  if params['survey_id']=='delete'
+    params['question_ids'].each do |id|
+      ques = Question.find(id.to_i())
+      ques.destroy()
+    end
+  else
+    survey_to_modify = Survey.find(params['survey_id'])
+    params['question_ids'].each do |id|
+      ques = Question.find(id.to_i())
+      survey_to_modify.questions.push(ques)
+    end
   end
   redirect ('/')
 end
