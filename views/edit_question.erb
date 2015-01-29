@@ -1,0 +1,20 @@
+ <form action="/question_update" method="post">
+   <input type="hidden" name="_method" value="patch">
+   <input type="hidden" name="question_id" value="<%= @question.id() %>">
+   <label for="new_ask">Question:</label>
+   <input type="text" name="new_ask" value="<%= @question.ask() %>">
+   <button type="submit" class="btn btn-sm btn-success">Change question</button>
+ </form>
+ </br>
+ <form action="/question_seperate" method="post">
+   <input type="hidden" name="_method" value="delete">
+   <input type="hidden" name="question_id" value="<%= @question.id() %>">
+   <input type="hidden" name="survey_id" value="<%= @survey.id() %>">
+   <button type="submit" class="btn btn-sm btn-danger">Remove question from <%= @survey.name() %></button>
+ </form>
+ </br>
+ <form action="/question_delete" method="post">
+   <input type="hidden" name="_method" value="delete">
+   <input type="hidden" name="question_id" value="<%= @question.id() %>">
+   <button type="submit" class="btn btn-sm btn-danger">Delete question</button>
+ </form>

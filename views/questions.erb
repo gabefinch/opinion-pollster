@@ -1,0 +1,25 @@
+<h3>Create Survey Questions</h3>
+
+<form class="form-group" action="/new_question" method="post">
+  <input type="text" name="ask" placeholder="Where am I?">
+  <button class="btn btn-sm btn-default" type="submit">Add question!</button>
+</form>
+
+<br>
+
+<form action="/choose_question" method="post">
+  <% @questions.each() do |question| %>
+  <ul>
+  <li><input type="checkbox" name="question_ids[]" value="<%= question.id() %>">
+    <%= question.ask() %> </li>
+  </ul>
+  <% end %>
+<hr>
+  <select type="text" name="survey_id">
+    <% @surveys.each() do |survey| %>
+    <option value="<%= survey.id() %>"><%= survey.name() %></option>
+    <% end %>
+  </select>
+<hr>
+  <button type="submit" class="btn btn-md btn-success">Add selected questions to survey!</button>
+</form>

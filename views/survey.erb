@@ -1,10 +1,10 @@
 <div class="page-header">
   <h3><%= @survey.name() %>
-  <a class="btn btn-sm btn-danger" href="/survey_edit/<%= @survey.id() %>">Update/Delete this survey?</a></h3>
+  <a class="btn btn-sm btn-danger" href="/survey_edit/<%= @survey.id() %>">Update/delete this survey?</a></h3>
 </div>
 <ul>
   <% @survey.questions().each() do |question| %>
-  <li><%= question.ask() %><a href=""> <small>Remove this question</small></a></li>
+  <li><%= question.ask() %><a href="/edit_question/<%= question.id() %>/<%= @survey.id() %>"> <small>Edit/remove this question</small></a></li>
   <% end %>
 </ul>
 <form class="form-group" action="/question" method="post">
